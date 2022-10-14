@@ -32,6 +32,7 @@ const Wrapper = styled.button`
 
 	&:disabled {
 		filter: brightness(0.7);
+		transform: translateY(0);
 		cursor: initial;
 	}
 `;
