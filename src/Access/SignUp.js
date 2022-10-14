@@ -40,7 +40,10 @@ export default function SignIn({ isLogged }) {
 				setDisabled(false);
 			});
 
-			promise.then(() => navigate("/sign-in"));
+			promise.then(() => {
+				localStorage.setItem("shortly", JSON.stringify({ user: form.name }));
+				navigate("/sign-in");
+			});
 		}
 	}
 
