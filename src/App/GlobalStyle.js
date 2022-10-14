@@ -169,6 +169,22 @@ const GlobalStyle = createGlobalStyle`
     align-items: center;
     justify-content: center;
   }
+
+  b {
+    font-weight: 700;
+  }
+
+  i {
+    text-decoration: underline;
+  }
+
+  em {
+    color: var(--dark-green);
+  }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;
