@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://shortly-urls-app.herokuapp.com";
+const BASE_URL = "http://localhost:5000"//"https://shortly-urls-app.herokuapp.com";
 
 function createHeaders() {
 	const token = JSON.parse(localStorage.getItem("shortly"))?.token;
