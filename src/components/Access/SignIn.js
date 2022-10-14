@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { signIn } from "../service/shortly";
+import { signIn } from "../../service/shortly";
 
 import Button from "../common/Button";
 import Input from "../common/Input";

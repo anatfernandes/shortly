@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
-import { logout } from "../service/shortly";
+import { logout } from "../../service/shortly";
 
 import logo from "../assets/logo.svg";
 
