@@ -19,7 +19,7 @@ function App() {
 		<BrowserRouter>
 			<GlobalStyle />
 
-			<Header isLogged={isLogged} />
+			<Header isLogged={isLogged} setIsLogged={setIsLogged} />
 
 			<Routes>
 				<Route path="/sign-up" element={<SignUp isLogged={isLogged} />} />

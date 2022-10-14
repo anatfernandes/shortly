@@ -1,11 +1,39 @@
 import styled from "styled-components";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+
+import { logout } from "../service/shortly";
 
 import logo from "../assets/logo.svg";
 
-export default function Header({ isLogged }) {
+export default function Header({ isLogged, setIsLogged }) {
 	const { pathname } = useLocation();
+	const navigate = useNavigate();
+
 	const username = JSON.parse(localStorage.getItem("shortly"))?.user;
+
+	function logoutFunction() {
+		const storage = localStorage.getItem("shortly");
+
+		if (storage) {
+			const promise = logout();
+
+			promise.catch(() => {
+				window.alert(
+					"Sentimos muito, não foi possível deslogar. Por favor, tente novamente"
+				);
+			});
+
+			promise.then(() => {
+				const user = JSON.parse(localStorage.getItem("shortly"))?.user;
+
+				localStorage.setItem("shortly", JSON.stringify({ user }));
+
+				setIsLogged(false);
+
+				navigate("/");
+			});
+		}
+	}
 
 	return (
 		<Wrapper>
@@ -23,7 +51,7 @@ export default function Header({ isLogged }) {
 							<span>
 								<Link to="/ranking">Ranking</Link>
 							</span>
-							<span>
+							<span onClick={logoutFunction}>
 								<Link>
 									<i>Sair</i>
 								</Link>

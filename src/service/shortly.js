@@ -6,8 +6,8 @@ function createHeaders() {
 	const token = JSON.parse(localStorage.getItem("shortly"))?.token;
 
 	const config = {
-		Headers: {
-			Authorization: token,
+		headers: {
+			Authorization: `Bearer ${token}`,
 		},
 	};
 
