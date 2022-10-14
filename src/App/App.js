@@ -1,6 +1,7 @@
 import GlobalStyle from "./GlobalStyle";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import Header from "../Header/Header";
 
 function App() {

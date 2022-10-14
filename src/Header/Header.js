@@ -78,6 +78,7 @@ const Wrapper = styled.header`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: var(--white);
 	font-size: 14px;
 	color: var(--gray);
 
