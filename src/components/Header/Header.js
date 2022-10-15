@@ -48,9 +48,11 @@ export default function Header({ isLogged, setIsLogged }) {
 							<span>
 								<Link to="/">Home</Link>
 							</span>
+
 							<span>
 								<Link to="/ranking">Ranking</Link>
 							</span>
+
 							<span onClick={logoutFunction}>
 								<Link>
 									<i>Sair</i>
@@ -67,6 +69,7 @@ export default function Header({ isLogged, setIsLogged }) {
 									<span>
 										<Link to="/sign-in">Entrar</Link>
 									</span>
+
 									<span>
 										<Link to="/sign-up">
 											<em>Cadastrar-se</em>
@@ -80,6 +83,7 @@ export default function Header({ isLogged, setIsLogged }) {
 											<em>Entrar</em>
 										</Link>
 									</span>
+
 									<span>
 										<Link to="/sign-up">Cadastrar-se</Link>
 									</span>
@@ -109,6 +113,7 @@ const Wrapper = styled.header`
 	background-color: var(--white);
 	font-size: 14px;
 	color: var(--gray);
+	z-index: 2;
 
 	img {
 		width: 310px;

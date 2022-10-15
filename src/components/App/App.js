@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import SignUp from "../Access/SignUp";
 import SignIn from "../Access/SignIn";
 import Ranking from "../Ranking/Ranking";
+import UserSection from "../User/UserSection";
 
 function App() {
 	const [isLogged, setIsLogged] = useState(false);
@@ -32,12 +33,18 @@ function App() {
 
 				<Route
 					path="/"
-					element={isLogged ? "" : <Ranking isLogged={isLogged} />}
+					element={isLogged ? <UserSection /> : <Ranking isLogged={isLogged} />}
 				/>
 
 				<Route
 					path="/ranking"
-					element={isLogged ? <Ranking isLogged={isLogged} /> : ""}
+					element={
+						isLogged ? (
+							<Ranking isLogged={isLogged} />
+						) : (
+							"Entre para acessar essa página :)"
+						)
+					}
 				/>
 			</Routes>
 		</BrowserRouter>

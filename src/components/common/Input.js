@@ -11,8 +11,8 @@ const Wrapper = styled.input`
 	max-width: 769px;
 	height: 60px;
 	border-radius: 12px;
-	border: none;
-	box-shadow: 0 4px 24px 0 rgb(120 177 89 / 25%);
+	border: 1px solid rgba(120, 177, 89, 0.25);
+	box-shadow: 0 4px 24px 0 rgba(120, 177, 89, 0.25);
 	padding: 0 20px;
 	margin: 12px 0;
 	font-size: 18px;
