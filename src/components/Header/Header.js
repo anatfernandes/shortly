@@ -94,7 +94,9 @@ export default function Header({ isLogged, setIsLogged }) {
 				)}
 			</Menu>
 
-			<Link to="/"><img src={logo} alt="shortly" /></Link>
+			<Link to="/">
+				<img src={logo} alt="shortly" />
+			</Link>
 		</Wrapper>
 	);
 }
@@ -103,7 +105,6 @@ const Wrapper = styled.header`
 	width: 100%;
 	height: auto;
 	padding-bottom: 20px;
-
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -14,9 +14,7 @@ export default function UserSection() {
 		const promise = getUserData();
 
 		promise.catch(() => {
-			window.alert(
-				"Sentimos muito, não foi possível carregar os dados."
-			);
+			window.alert("Sentimos muito, não foi possível carregar os dados.");
 		});
 
 		promise.then((response) => {

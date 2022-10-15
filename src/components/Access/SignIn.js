@@ -7,15 +7,11 @@ import Button from "../common/Button";
 import Input from "../common/Input";
 import Form from "./AccessStyle";
 
-export default function SignIn({ isLogged, setIsLogged }) {
+export default function SignIn({ setIsLogged }) {
 	const [disabled, setDisabled] = useState(false);
 	const [form, setForm] = useState({});
 
 	const navigate = useNavigate();
-
-	if (isLogged) {
-		navigate("/");
-	}
 
 	function updateForm({ name, value }) {
 		setForm({

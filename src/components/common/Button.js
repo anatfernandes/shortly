@@ -25,14 +25,22 @@ const Wrapper = styled.button`
 		filter: brightness(0.9);
 	}
 
-	&:active {
-		filter: brightness(0.8);
-		transform: translateY(1px);
-	}
-
 	&:disabled {
 		filter: brightness(0.7);
 		transform: translateY(0);
 		cursor: initial;
 	}
+
+	${(props) =>
+		props.Large
+			? `
+				width: 100%;
+				font-size: 16px;
+			`
+			: `
+				&:active {
+					filter: brightness(0.8);
+					transform: translateY(1px);
+				}
+			`}
 `;
