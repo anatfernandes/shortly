@@ -25,7 +25,7 @@ export default function UserSection() {
 	}, [update]);
 
 	return (
-		<Main>
+		<main>
 			<CreateUrl update={update} setUpdate={setUpdate} />
 
 			<Urls>
@@ -38,14 +38,9 @@ export default function UserSection() {
 					/>
 				))}
 			</Urls>
-		</Main>
+		</main>
 	);
 }
-
-const Main = styled.main`
-	height: 100%;
-	margin: 550px 0 0;
-`;
 
 const Urls = styled.section`
 	width: 100%;

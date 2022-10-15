@@ -94,7 +94,7 @@ export default function Header({ isLogged, setIsLogged }) {
 				)}
 			</Menu>
 
-			<img src={logo} alt="shortly" />
+			<Link to="/"><img src={logo} alt="shortly" /></Link>
 		</Wrapper>
 	);
 }
@@ -103,10 +103,7 @@ const Wrapper = styled.header`
 	width: 100%;
 	height: auto;
 	padding-bottom: 20px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -117,6 +114,7 @@ const Wrapper = styled.header`
 
 	img {
 		width: 310px;
+		margin: 100px 0 0;
 	}
 
 	a {
@@ -125,11 +123,18 @@ const Wrapper = styled.header`
 `;
 
 const Menu = styled.section`
-	width: 80%;
+	width: 100%;
 	height: 100px;
-	padding-top: 60px;
+	padding: 60px 60px 0;
 	display: flex;
 	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	background-color: var(--white);
+	z-index: 2;
 
 	span {
 		margin: 0 10px;

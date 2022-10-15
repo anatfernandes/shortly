@@ -154,8 +154,8 @@ const GlobalStyle = createGlobalStyle`
 
   #root {
     width: 100%;
-    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -167,7 +167,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 400px;
+    margin-top: 60px;
     height: auto;
 	  color: var(--black);
   }

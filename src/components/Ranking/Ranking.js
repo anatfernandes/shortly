@@ -72,6 +72,7 @@ const Background = styled.ul`
 	padding: 30px;
 	background-color: var(--white);
 	border-radius: 12px 12px 5px 5px;
+	border: 1px solid rgba(120, 177, 89, 0.25);
 	box-shadow: 0 4px 24px 0 rgb(120 177 89 / 25%);
 	display: flex;
 	flex-direction: column;
