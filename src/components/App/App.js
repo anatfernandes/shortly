@@ -62,7 +62,7 @@ function App() {
 							isLogged ? (
 								<Ranking isLogged={isLogged} />
 							) : (
-								"Faça o login para acessar essa página :)"
+								"Faça login para acessar essa página :)"
 							)
 						}
 					/>

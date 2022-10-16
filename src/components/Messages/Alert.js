@@ -65,6 +65,7 @@ const Wrapper = styled.div`
 	border-radius: 7px 7px 7px 0;
 	box-shadow: -1px 2px 6px 0 rgb(0, 0, 0, 0.3);
 	font-size: 16px;
+	line-height: 20px;
 	color: var(--white);
 	text-align: center;
 	transition: all 0.2s linear;

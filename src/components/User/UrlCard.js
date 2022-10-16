@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useMessage } from "../../contexts/messageContext";
 import { deleteUrl } from "../../service/shortly";
 
 import trashImg from "../assets/trash.svg";
@@ -11,15 +12,36 @@ export default function UrlCard({
 	url,
 	visitCount,
 }) {
+	const { setMessage } = useMessage();
+
 	function deleteUrlFunction() {
 		const promise = deleteUrl(id);
 
 		promise.catch(() => {
-			window.alert("Sentimos muito, não foi possível excluir a url.");
+			setMessage({
+				type: "alert",
+				message: {
+					type: "error",
+					text: "Sentimos muito, não foi possível excluir a url.",
+				},
+			});
 		});
 
 		promise.then(() => {
 			setUpdate(!update);
+		});
+	}
+
+	function confirmDelete() {
+		setMessage({
+			type: "confirm",
+			message: {
+				title: "Apagar URL",
+				text: "Tem certeza que deseja apagar a URL? Essa ação não pode ser desfeita.",
+				confirm: {
+					function: deleteUrlFunction,
+				},
+			},
 		});
 	}
 
@@ -32,7 +54,7 @@ export default function UrlCard({
 			</Info>
 
 			<Delete>
-				<img src={trashImg} alt="excluir url" onClick={deleteUrlFunction} />
+				<img src={trashImg} alt="excluir url" onClick={confirmDelete} />
 			</Delete>
 		</Wrapper>
 	);

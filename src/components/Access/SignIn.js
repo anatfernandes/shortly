@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useMessage } from "../../contexts/messageContext";
 import { signIn } from "../../service/shortly";
 
 import Button from "../common/Button";
@@ -10,6 +11,7 @@ import Form from "./AccessStyle";
 export default function SignIn({ setIsLogged }) {
 	const [disabled, setDisabled] = useState(false);
 	const [form, setForm] = useState({});
+	const { setMessage } = useMessage();
 
 	const navigate = useNavigate();
 
@@ -28,7 +30,14 @@ export default function SignIn({ setIsLogged }) {
 		const promise = signIn(form);
 
 		promise.catch(({ response }) => {
-			window.alert(response.data.message);
+			setMessage({
+				type: "alert",
+				message: {
+					type: "error",
+					text: response.data.message,
+				},
+			});
+
 			setDisabled(false);
 		});
 

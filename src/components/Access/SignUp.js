@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useMessage } from "../../contexts/messageContext";
 import { signUp } from "../../service/shortly";
 
 import Button from "../common/Button";
 import Input from "../common/Input";
 import Form from "./AccessStyle";
 
-export default function SignIn({ isLogged }) {
+export default function SignUp({ isLogged }) {
 	const [disabled, setDisabled] = useState(false);
 	const [form, setForm] = useState({});
+	const { setMessage } = useMessage();
 
 	const navigate = useNavigate();
-
-	if (isLogged) {
-		navigate("/");
-	}
 
 	function updateForm({ name, value }) {
 		setForm({
@@ -30,13 +28,27 @@ export default function SignIn({ isLogged }) {
 		setDisabled(true);
 
 		if (form.password !== form.confirmPassword || form.password.length < 4) {
-			window.alert("As senhas devem ser iguais e possuir mais de 4 dígitos.");
+			setMessage({
+				type: "alert",
+				message: {
+					type: "warning",
+					text: "As senhas devem ser iguais e possuir mais de 3 dígitos.",
+				},
+			});
+
 			setDisabled(false);
 		} else {
 			const promise = signUp(form);
 
 			promise.catch(({ response }) => {
-				window.alert(response.data.message);
+				setMessage({
+					type: "alert",
+					message: {
+						type: "error",
+						text: response.data.message,
+					},
+				});
+
 				setDisabled(false);
 			});
 

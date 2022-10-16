@@ -1,20 +1,26 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
+import { useMessage } from "../../contexts/messageContext";
 import { getRanking } from "../../service/shortly";
 
 import trophyImg from "../assets/trophy.svg";
 
 export default function Ranking({ isLogged }) {
 	const [ranking, setRanking] = useState([]);
+	const { setMessage } = useMessage();
 
 	useEffect(() => {
 		const promise = getRanking();
 
 		promise.catch(() => {
-			window.alert(
-				"Sentimos muito, não foi possível buscar o ranking. Por favor, recarregue a página."
-			);
+			setMessage({
+				type: "alert",
+				message: {
+					type: "error",
+					text: "Sentimos muito, não foi possível buscar o ranking. Por favor, recarregue a página.",
+				},
+			});
 		});
 
 		promise.then(({ data }) => {

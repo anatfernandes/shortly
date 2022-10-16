@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
+import { useMessage } from "../../contexts/messageContext";
 import { getUserData } from "../../service/shortly";
 
 import CreateUrl from "./CreateUrl";
@@ -9,12 +10,19 @@ import UrlCard from "./UrlCard";
 export default function UserSection() {
 	const [update, setUpdate] = useState(false);
 	const [data, setData] = useState([]);
+	const { setMessage } = useMessage();
 
 	useEffect(() => {
 		const promise = getUserData();
 
 		promise.catch(() => {
-			window.alert("Sentimos muito, não foi possível carregar os dados.");
+			setMessage({
+				type: "alert",
+				message: {
+					type: "error",
+					text: "Sentimos muito, não foi possível carregar os dados.",
+				},
+			});
 		});
 
 		promise.then((response) => {

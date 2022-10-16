@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
+import { useMessage } from "../../contexts/messageContext";
 import { postUrl } from "../../service/shortly";
 
 import Button from "../common/Button";
@@ -9,6 +10,7 @@ import Input from "../common/Input";
 export default function CreateUrl({ update, setUpdate }) {
 	const [disabled, setDisabled] = useState(false);
 	const [form, setForm] = useState({});
+	const { setMessage } = useMessage();
 
 	function handleForm(event) {
 		event.preventDefault();
@@ -18,7 +20,14 @@ export default function CreateUrl({ update, setUpdate }) {
 		const promise = postUrl(form);
 
 		promise.catch(({ response }) => {
-			window.alert(response.data.message);
+			setMessage({
+				type: "alert",
+				message: {
+					type: "error",
+					text: response.data.message,
+				},
+			});
+
 			setDisabled(false);
 		});
 

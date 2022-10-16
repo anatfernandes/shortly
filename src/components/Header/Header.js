@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
+import { useMessage } from "../../contexts/messageContext";
+
 import { logout } from "../../service/shortly";
 
 import logo from "../assets/logo.svg";
 
 export default function Header({ isLogged, setIsLogged }) {
+	const { setMessage } = useMessage();
 	const { pathname } = useLocation();
 	const navigate = useNavigate();
 
@@ -18,9 +21,13 @@ export default function Header({ isLogged, setIsLogged }) {
 			const promise = logout();
 
 			promise.catch(() => {
-				window.alert(
-					"Sentimos muito, não foi possível deslogar. Por favor, tente novamente"
-				);
+				setMessage({
+					type: "alert",
+					message: {
+						type: "error",
+						text: "Sentimos muito, não foi possível deslogar. Por favor, tente novamente",
+					},
+				});
 			});
 
 			promise.then(() => {
