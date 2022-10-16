@@ -60,6 +60,10 @@ export default function Header({ isLogged, setIsLogged }) {
 								<Link to="/ranking">Ranking</Link>
 							</span>
 
+							<span>
+								<Link to="/urls">URLs</Link>
+							</span>
+
 							<span onClick={logoutFunction}>
 								<Link>
 									<i>Sair</i>
@@ -71,6 +75,10 @@ export default function Header({ isLogged, setIsLogged }) {
 					<>
 						<div></div>
 						<div>
+							<span>
+								<Link to="/urls">URLs</Link>
+							</span>
+
 							{pathname === "/sign-up" ? (
 								<>
 									<span>

@@ -48,6 +48,12 @@ function getUrl(id) {
 	return promise;
 }
 
+function getUrls() {
+	const promise = axios.get(`${BASE_URL}/urls`);
+
+	return promise;
+}
+
 function deleteUrl(id) {
 	const config = createHeaders();
 
@@ -61,6 +67,7 @@ function openUrl(shortUrl) {
 
 	return promise;
 }
+
 function getUserData() {
 	const config = createHeaders();
 
@@ -81,6 +88,7 @@ export {
 	logout,
 	postUrl,
 	getUrl,
+	getUrls,
 	deleteUrl,
 	openUrl,
 	getUserData,

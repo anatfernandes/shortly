@@ -10,6 +10,7 @@ import SignUp from "../Access/SignUp";
 import SignIn from "../Access/SignIn";
 import Ranking from "../Ranking/Ranking";
 import UserSection from "../User/UserSection";
+import Urls from "../Urls/Urls";
 
 function App() {
 	const [isLogged, setIsLogged] = useState(
@@ -65,6 +66,11 @@ function App() {
 								"Faça login para acessar essa página :)"
 							)
 						}
+					/>
+
+					<Route
+						path="/urls"
+						element={<Urls />}
 					/>
 				</Routes>
 			</MessageProvider>
