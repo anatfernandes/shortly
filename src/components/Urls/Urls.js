@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 import { useMessage } from "../../contexts/messageContext";
@@ -9,7 +8,7 @@ import Url from "./Url";
 export default function Urls() {
 	const [urls, setUrls] = useState([]);
 	const { setMessage } = useMessage();
-console.log(urls)
+
 	useEffect(() => {
 		const promise = getUrls();
 
@@ -26,12 +25,7 @@ console.log(urls)
 		promise.then(({ data }) => {
 			setUrls(data);
 		});
-	}, [])
+	}, []);
 
-
-	return (
-			urls.map((url, index) => (<Url key={index} {...url}/>))
-	);
+	return urls.map((url, index) => <Url key={index} {...url} />);
 }
-
-
