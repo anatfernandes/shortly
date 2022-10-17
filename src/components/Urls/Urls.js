@@ -1,12 +1,15 @@
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 
 import { useMessage } from "../../contexts/messageContext";
 import { getUrls } from "../../service/shortly";
 
+import Input from "../common/Input";
 import Url from "./Url";
 
 export default function Urls() {
 	const [urls, setUrls] = useState([]);
+	const [search, setSearch] = useState("");
 	const { setMessage } = useMessage();
 
 	useEffect(() => {
@@ -27,5 +30,26 @@ export default function Urls() {
 		});
 	}, []);
 
-	return urls.map((url, index) => <Url key={index} {...url} />);
+	const urlsFiltered = urls.filter(({ url }) => url?.includes(search));
+
+	return (
+		<>
+			<SearchSection>
+				<Input
+					type="text"
+					placeholder="Buscar URL"
+					onChange={(e) => setSearch(e.target.value)}
+				/>
+			</SearchSection>
+
+			{urlsFiltered.map((url, index) => (
+				<Url key={index} {...url} />
+			))}
+		</>
+	);
 }
+
+const SearchSection = styled.section`
+	width: 80%;
+	margin: 0 auto 50px;
+`;

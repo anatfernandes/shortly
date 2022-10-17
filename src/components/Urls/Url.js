@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 import { useMessage } from "../../contexts/messageContext";
-import { getUrl } from "../../service/shortly";
+import { getUrl, openUrl } from "../../service/shortly";
 
 export default function Url({ id, url }) {
 	const [fullUrl, setFullUrl] = useState({});
@@ -26,6 +26,18 @@ export default function Url({ id, url }) {
 		});
 	}
 
+	function openUrlFunction() {
+		const promise = openUrl(fullUrl.shortUrl);
+
+		promise.catch(() => {
+			window.open(fullUrl.url);
+		});
+
+		promise.then(() => {
+			window.open(fullUrl.url);
+		});
+	}
+
 	return (
 		<Wrapper
 			onClick={
@@ -41,9 +53,10 @@ export default function Url({ id, url }) {
 					<span>
 						<i>URL:</i> {fullUrl.url}
 					</span>
-					<span>
+
+					<ShortUrl onClick={openUrlFunction}>
 						<i>URL encurtada:</i> {fullUrl.shortUrl}
-					</span>
+					</ShortUrl>
 				</>
 			) : (
 				<span>{url}</span>
@@ -76,5 +89,12 @@ const Wrapper = styled.div`
 
 	&:hover {
 		filter: brightness(1.1);
+	}
+`;
+
+const ShortUrl = styled.span`
+	&& {
+		width: fit-content;
+		cursor: pointer;
 	}
 `;
