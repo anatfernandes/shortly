@@ -35,7 +35,7 @@ export default function Urls() {
 	return (
 		<>
 			<SearchSection>
-				<Input
+				<SearchInput
 					type="text"
 					placeholder="Buscar URL"
 					onChange={(e) => setSearch(e.target.value)}
@@ -52,4 +52,8 @@ export default function Urls() {
 const SearchSection = styled.section`
 	width: 80%;
 	margin: 0 auto 50px;
+`;
+
+const SearchInput = styled(Input)`
+	max-width: 100%;
 `;
