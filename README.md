@@ -4,7 +4,7 @@
 
 <div align=center>
   
-  ![Shortly gif](https://user-images.githubusercontent.com/97851922/205523732-1bbccdb7-9600-456c-8689-dcc3918effa1.gif)
+  ![Shortly gif](https://user-images.githubusercontent.com/97851922/205524245-21abfdff-2016-458e-9ded-ab624c558b7d.gif)
   
 </div>
 
