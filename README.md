@@ -1,6 +1,8 @@
 # :shorts: Shortly
 
- Shortly é um site encurtador de URLs desenvolvido com o intuito de facilitar o compatilhamento de links, afinal, link bom é aquele que cabe no bolso!
+![Badge Finalizado](https://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=success&style=for-the-badge)
+
+Shortly é um site encurtador de URLs desenvolvido com o intuito de facilitar o compatilhamento de links, afinal, link bom é aquele que cabe no bolso!
 
 <div align=center>
   
@@ -25,7 +27,7 @@
 ## :hammer_and_wrench: Abrir e rodar o projeto
 1. Clone esse repositório:
 >```bash
->$ git clone https://github.com/AnaLTFernandes/shortly.git
+>$ git clone https://github.com/anatfernandes/shortly.git
 >```
 
 <br />
@@ -37,11 +39,11 @@
 
 <br />
 
-3. Instale e configure o backend em https://github.com/AnaLTFernandes/shortly-back
+3. Instale e configure o backend em https://github.com/anatfernandes/shortly-back
 
 <br />
 
-4. Mude a variável *BASE_URL* no arquivo [shortly](https://github.com/AnaLTFernandes/shortly/blob/main/src/service/shortly.js#L3) para `http://localhost:{BACKEND_PORT}`
+4. Mude a variável *BASE_URL* no arquivo [shortly](https://github.com/anatfernandes/shortly/blob/main/src/service/shortly.js#L3) para `http://localhost:{BACKEND_PORT}`
 
 <br />
 
